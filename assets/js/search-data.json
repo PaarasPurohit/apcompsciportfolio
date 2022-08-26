@@ -40,6 +40,22 @@
   
 
   
+      ,"page3": {
+          "title": "Notes & Vocab",
+          "content": "Note to self: Put some important notes/vocab here when needed throughout the year. .",
+          "url": "https://paaraspurohit.com/apcompsciportfolio/notes-and-vocab/",
+          "relUrl": "/notes-and-vocab/",
+          "date": ""
+      }
+      
+  
+
+  
+  
+
+  
+
+  
   
 
   
@@ -48,18 +64,13 @@
   
 
   
-
-  
   
 
   
   
 
   
-  
-
-  
-      ,"page10": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://paaraspurohit.com/apcompsciportfolio/robots.txt",
