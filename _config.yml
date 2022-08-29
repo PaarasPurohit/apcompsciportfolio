@@ -39,9 +39,8 @@ baseurl: "/apcompsciportfolio" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
     github: PaarasPurohit
-    youtube_channel: https://www.youtube.com/channel/UCnTi9cfOVoYj2B2LwTbrC5w/videos
+    youtube_channel: UCnTi9cfOVoYj2B2LwTbrC5w
 
 # Set this to true to get LaTeX math equation support
 use_math: 
