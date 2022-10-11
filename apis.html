@@ -65,7 +65,7 @@ window.onload = wrap_img;
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/apcompsciportfolio/about/">About Me</a><a class="page-link" href="/apcompsciportfolio/notes-and-vocab/">Notes &amp; Vocab</a><a class="page-link" href="/apcompsciportfolio/search/">Search</a><a class="page-link" href="/apcompsciportfolio/categories/">Tags</a></div>
+        <div class="trigger"><a class="page-link" href="/apcompsciportfolio/about/">About Me</a><a class="page-link" href="/apcompsciportfolio/javascript/">JavaScript</a><a class="page-link" href="/apcompsciportfolio/notes-and-vocab/">Notes &amp; Vocab</a><a class="page-link" href="/apcompsciportfolio/search/">Search</a><a class="page-link" href="/apcompsciportfolio/categories/">Tags</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -164,7 +164,7 @@ window.onload = wrap_img;
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -176,9 +176,152 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[{'id': 1, 'storeName': 'Kentucky Fried Chicken', 'address': '2350 Miracle Mile', 'zipCode': '86442', 'phone': '(928) 763-2111', 'stateName': 'AZ', 'cityName': 'Bullhead City', 'latitude': '35.099735982044', 'longitude': '-114.59584849976', 'monday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'tuesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'wednesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'thursday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'friday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'saturday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'sunday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}}, {'id': 2, 'storeName': 'Kentucky Fried Chicken', 'address': '14200 Ramona Blvd', 'zipCode': '91706', 'phone': '(626) 412-0246', 'stateName': 'CA', 'cityName': 'Baldwin Park', 'latitude': '34.085007092947', 'longitude': '-117.96434596872', 'monday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'tuesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'wednesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'thursday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'friday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'saturday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'sunday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}}, {'id': 3, 'storeName': 'Kentucky Fried Chicken', 'address': '126 Vermont Avenue', 'zipCode': '90004', 'phone': '(213) 487-4503', 'stateName': 'CA', 'cityName': 'Los Angeles', 'latitude': '34.072344596213', 'longitude': '-118.29140177489', 'monday': {'openTime': '09:09 AM', 'closeTime': '22:10 PM'}, 'tuesday': {'openTime': '09:09 AM', 'closeTime': '22:10 PM'}, 'wednesday': {'openTime': '09:09 AM', 'closeTime': '22:10 PM'}, 'thursday': {'openTime': '09:09 AM', 'closeTime': '22:10 PM'}, 'friday': {'openTime': '09:09 AM', 'closeTime': '22:10 PM'}, 'saturday': {'openTime': '09:09 AM', 'closeTime': '22:10 PM'}, 'sunday': {'openTime': '09:09 AM', 'closeTime': '22:10 PM'}}, {'id': 4, 'storeName': 'Kentucky Fried Chicken', 'address': '3250 Dale Road', 'zipCode': '95356', 'phone': '(209) 523-3868', 'stateName': 'CA', 'cityName': 'Modesto', 'latitude': '37.686596884382', 'longitude': '-121.04934331039', 'monday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'tuesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'wednesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'thursday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'friday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'saturday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'sunday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}}, {'id': 5, 'storeName': 'Kentucky Fried Chicken', 'address': '12319 San Pablo Avenue', 'zipCode': '94805', 'phone': '(510) 232-1527', 'stateName': 'CA', 'cityName': 'Richmond', 'latitude': '37.935616540158', 'longitude': '-122.32562680736', 'monday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'tuesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'wednesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'thursday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'friday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'saturday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'sunday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}}, {'id': 6, 'storeName': 'Kentucky Fried Chicken', 'address': '5225 Canyon Crest Dr', 'zipCode': '92507', 'phone': '(951) 787-0761', 'stateName': 'CA', 'cityName': 'Riverside', 'latitude': '33.955670429343', 'longitude': '-117.32950953312', 'monday': {'openTime': '09:09 AM', 'closeTime': '23:11 PM'}, 'tuesday': {'openTime': '09:09 AM', 'closeTime': '23:11 PM'}, 'wednesday': {'openTime': '09:09 AM', 'closeTime': '23:11 PM'}, 'thursday': {'openTime': '09:09 AM', 'closeTime': '23:11 PM'}, 'friday': {'openTime': '09:09 AM', 'closeTime': '23:11 PM'}, 'saturday': {'openTime': '09:09 AM', 'closeTime': '23:11 PM'}, 'sunday': {'openTime': '09:09 AM', 'closeTime': '23:11 PM'}}, {'id': 7, 'storeName': 'Kentucky Fried Chicken', 'address': '2260 Callagan Hwy', 'zipCode': '92136', 'phone': '(760) 580-7977', 'stateName': 'CA', 'cityName': 'San Diego', 'latitude': '32.68984', 'longitude': '-117.128494', 'monday': {'openTime': None, 'closeTime': None}, 'tuesday': {'openTime': None, 'closeTime': None}, 'wednesday': {'openTime': None, 'closeTime': None}, 'thursday': {'openTime': None, 'closeTime': None}, 'friday': {'openTime': None, 'closeTime': None}, 'saturday': {'openTime': None, 'closeTime': None}, 'sunday': {'openTime': None, 'closeTime': None}}, {'id': 8, 'storeName': 'Kentucky Fried Chicken', 'address': '1065 East El Camino Real', 'zipCode': '94087', 'phone': '(408) 246-8924', 'stateName': 'CA', 'cityName': 'Sunnyvale', 'latitude': '37.352596825301', 'longitude': '-122.0037313434', 'monday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'tuesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'wednesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'thursday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'friday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'saturday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'sunday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}}, {'id': 9, 'storeName': 'Kentucky Fried Chicken', 'address': '230 Route', 'zipCode': '06340', 'phone': '(860) 449-1888', 'stateName': 'CT', 'cityName': 'Groton', 'latitude': '41.368902247397', 'longitude': '-72.069774193484', 'monday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'tuesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'wednesday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}, 'thursday': {'openTime': '10:10 AM', 'closeTime': '23:11 PM'}, 'friday': {'openTime': '10:10 AM', 'closeTime': '23:11 PM'}, 'saturday': {'openTime': '10:10 AM', 'closeTime': '23:11 PM'}, 'sunday': {'openTime': '10:10 AM', 'closeTime': '22:10 PM'}}, {'id': 10, 'storeName': 'Kentucky Fried Chicken', 'address': '8363 W Flagler Street', 'zipCode': '33144', 'phone': '(305) 267-1356', 'stateName': 'FL', 'cityName': 'Miami', 'latitude': '25.770171050322', 'longitude': '-80.331015579154', 'monday': {'openTime': '05:05 AM', 'closeTime': '04:04 AM'}, 'tuesday': {'openTime': '05:05 AM', 'closeTime': '04:04 AM'}, 'wednesday': {'openTime': '05:05 AM', 'closeTime': '04:04 AM'}, 'thursday': {'openTime': '05:05 AM', 'closeTime': '04:04 AM'}, 'friday': {'openTime': '06:06 AM', 'closeTime': '05:05 AM'}, 'saturday': {'openTime': '06:06 AM', 'closeTime': '05:05 AM'}, 'sunday': {'openTime': '05:05 AM', 'closeTime': '04:04 AM'}}]
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">gaierror</span>                                  Traceback (most recent call last)
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/urllib3/connection.py:159</span>, in <span class="ansi-cyan-fg">HTTPConnection._new_conn</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    158</span> try:
+<span class="ansi-green-fg">--&gt; 159</span>     conn = connection.create_connection(
+<span class="ansi-green-intense-fg ansi-bold">    160</span>         (self._dns_host, self.port), self.timeout, **extra_kw
+<span class="ansi-green-intense-fg ansi-bold">    161</span>     )
+<span class="ansi-green-intense-fg ansi-bold">    163</span> except SocketTimeout:
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/urllib3/util/connection.py:61</span>, in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address, socket_options)</span>
+<span class="ansi-green-intense-fg ansi-bold">     59</span> family = allowed_gai_family()
+<span class="ansi-green-fg">---&gt; 61</span> for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+<span class="ansi-green-intense-fg ansi-bold">     62</span>     af, socktype, proto, canonname, sa = res
+
+File <span class="ansi-green-fg">/usr/lib/python3.8/socket.py:918</span>, in <span class="ansi-cyan-fg">getaddrinfo</span><span class="ansi-blue-fg">(host, port, family, type, proto, flags)</span>
+<span class="ansi-green-intense-fg ansi-bold">    917</span> addrlist = []
+<span class="ansi-green-fg">--&gt; 918</span> for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+<span class="ansi-green-intense-fg ansi-bold">    919</span>     af, socktype, proto, canonname, sa = res
+
+<span class="ansi-red-fg">gaierror</span>: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">NewConnectionError</span>                        Traceback (most recent call last)
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:665</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool.urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    664</span> # Make the request on the httplib connection object.
+<span class="ansi-green-fg">--&gt; 665</span> httplib_response = self._make_request(
+<span class="ansi-green-intense-fg ansi-bold">    666</span>     conn,
+<span class="ansi-green-intense-fg ansi-bold">    667</span>     method,
+<span class="ansi-green-intense-fg ansi-bold">    668</span>     url,
+<span class="ansi-green-intense-fg ansi-bold">    669</span>     timeout=timeout_obj,
+<span class="ansi-green-intense-fg ansi-bold">    670</span>     body=body,
+<span class="ansi-green-intense-fg ansi-bold">    671</span>     headers=headers,
+<span class="ansi-green-intense-fg ansi-bold">    672</span>     chunked=chunked,
+<span class="ansi-green-intense-fg ansi-bold">    673</span> )
+<span class="ansi-green-intense-fg ansi-bold">    675</span> # If we're going to release the connection in ``finally:``, then
+<span class="ansi-green-intense-fg ansi-bold">    676</span> # the response doesn't need to know about the connection. Otherwise
+<span class="ansi-green-intense-fg ansi-bold">    677</span> # it will also try to release it and we'll have a double-release
+<span class="ansi-green-intense-fg ansi-bold">    678</span> # mess.
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:376</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool._make_request</span><span class="ansi-blue-fg">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    375</span> try:
+<span class="ansi-green-fg">--&gt; 376</span>     self._validate_conn(conn)
+<span class="ansi-green-intense-fg ansi-bold">    377</span> except (SocketTimeout, BaseSSLError) as e:
+<span class="ansi-green-intense-fg ansi-bold">    378</span>     # Py2 raises this as a BaseSSLError, Py3 raises it as socket timeout.
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:996</span>, in <span class="ansi-cyan-fg">HTTPSConnectionPool._validate_conn</span><span class="ansi-blue-fg">(self, conn)</span>
+<span class="ansi-green-intense-fg ansi-bold">    995</span> if not getattr(conn, "sock", None):  # AppEngine might not have  `.sock`
+<span class="ansi-green-fg">--&gt; 996</span>     conn.connect()
+<span class="ansi-green-intense-fg ansi-bold">    998</span> if not conn.is_verified:
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/urllib3/connection.py:314</span>, in <span class="ansi-cyan-fg">VerifiedHTTPSConnection.connect</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    312</span> def connect(self):
+<span class="ansi-green-intense-fg ansi-bold">    313</span>     # Add certificate verification
+<span class="ansi-green-fg">--&gt; 314</span>     conn = self._new_conn()
+<span class="ansi-green-intense-fg ansi-bold">    315</span>     hostname = self.host
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/urllib3/connection.py:171</span>, in <span class="ansi-cyan-fg">HTTPConnection._new_conn</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    170</span> except SocketError as e:
+<span class="ansi-green-fg">--&gt; 171</span>     raise NewConnectionError(
+<span class="ansi-green-intense-fg ansi-bold">    172</span>         self, "Failed to establish a new connection: %s" % e
+<span class="ansi-green-intense-fg ansi-bold">    173</span>     )
+<span class="ansi-green-intense-fg ansi-bold">    175</span> return conn
+
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.VerifiedHTTPSConnection object at 0x7f179862d040&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">MaxRetryError</span>                             Traceback (most recent call last)
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/requests/adapters.py:439</span>, in <span class="ansi-cyan-fg">HTTPAdapter.send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="ansi-green-intense-fg ansi-bold">    438</span> if not chunked:
+<span class="ansi-green-fg">--&gt; 439</span>     resp = conn.urlopen(
+<span class="ansi-green-intense-fg ansi-bold">    440</span>         method=request.method,
+<span class="ansi-green-intense-fg ansi-bold">    441</span>         url=url,
+<span class="ansi-green-intense-fg ansi-bold">    442</span>         body=request.body,
+<span class="ansi-green-intense-fg ansi-bold">    443</span>         headers=request.headers,
+<span class="ansi-green-intense-fg ansi-bold">    444</span>         redirect=False,
+<span class="ansi-green-intense-fg ansi-bold">    445</span>         assert_same_host=False,
+<span class="ansi-green-intense-fg ansi-bold">    446</span>         preload_content=False,
+<span class="ansi-green-intense-fg ansi-bold">    447</span>         decode_content=False,
+<span class="ansi-green-intense-fg ansi-bold">    448</span>         retries=self.max_retries,
+<span class="ansi-green-intense-fg ansi-bold">    449</span>         timeout=timeout
+<span class="ansi-green-intense-fg ansi-bold">    450</span>     )
+<span class="ansi-green-intense-fg ansi-bold">    452</span> # Send the request.
+<span class="ansi-green-intense-fg ansi-bold">    453</span> else:
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:719</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool.urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    717</span>     e = ProtocolError("Connection aborted.", e)
+<span class="ansi-green-fg">--&gt; 719</span> retries = retries.increment(
+<span class="ansi-green-intense-fg ansi-bold">    720</span>     method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+<span class="ansi-green-intense-fg ansi-bold">    721</span> )
+<span class="ansi-green-intense-fg ansi-bold">    722</span> retries.sleep()
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/urllib3/util/retry.py:436</span>, in <span class="ansi-cyan-fg">Retry.increment</span><span class="ansi-blue-fg">(self, method, url, response, error, _pool, _stacktrace)</span>
+<span class="ansi-green-intense-fg ansi-bold">    435</span> if new_retry.is_exhausted():
+<span class="ansi-green-fg">--&gt; 436</span>     raise MaxRetryError(_pool, url, error or ResponseError(cause))
+<span class="ansi-green-intense-fg ansi-bold">    438</span> log.debug("Incremented Retry for (url='%s'): %r", url, new_retry)
+
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPSConnectionPool(host='kfc-locations.p.rapidapi.com', port=443): Max retries exceeded with url: /kfc/location/0 (Caused by NewConnectionError('&lt;urllib3.connection.VerifiedHTTPSConnection object at 0x7f179862d040&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">/home/paaraspurohit/vscode/apcompsciportfolio/_notebooks/2022-10-10-applicationprogramminginterface.ipynb Cell 3</span> in <span class="ansi-cyan-fg">&lt;cell line: 10&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/paaraspurohit/vscode/apcompsciportfolio/_notebooks/2022-10-10-applicationprogramminginterface.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=2'&gt;3&lt;/a&gt;</span> url = "https://kfc-locations.p.rapidapi.com/kfc/location/0"
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/paaraspurohit/vscode/apcompsciportfolio/_notebooks/2022-10-10-applicationprogramminginterface.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=4'&gt;5&lt;/a&gt;</span> headers = {
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/paaraspurohit/vscode/apcompsciportfolio/_notebooks/2022-10-10-applicationprogramminginterface.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=5'&gt;6&lt;/a&gt;</span> 	"X-RapidAPI-Key": "f9e05fed4fmshda97f8933d9e076p192198jsn5018f8cb51c3",
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/paaraspurohit/vscode/apcompsciportfolio/_notebooks/2022-10-10-applicationprogramminginterface.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=6'&gt;7&lt;/a&gt;</span> 	"X-RapidAPI-Host": "kfc-locations.p.rapidapi.com"
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/paaraspurohit/vscode/apcompsciportfolio/_notebooks/2022-10-10-applicationprogramminginterface.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=7'&gt;8&lt;/a&gt;</span> }
+<span class="ansi-green-fg">---&gt; &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/paaraspurohit/vscode/apcompsciportfolio/_notebooks/2022-10-10-applicationprogramminginterface.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=9'&gt;10&lt;/a&gt;</span> response = requests.request("GET", url, headers=headers)
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu/home/paaraspurohit/vscode/apcompsciportfolio/_notebooks/2022-10-10-applicationprogramminginterface.ipynb#W2sdnNjb2RlLXJlbW90ZQ%3D%3D?line=11'&gt;12&lt;/a&gt;</span> print(response.json)
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/requests/api.py:60</span>, in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(method, url, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     56</span> # By using the 'with' statement we are sure the session is closed, thus we
+<span class="ansi-green-intense-fg ansi-bold">     57</span> # avoid leaving sockets open which can trigger a ResourceWarning in some
+<span class="ansi-green-intense-fg ansi-bold">     58</span> # cases, and look like a memory leak in others.
+<span class="ansi-green-intense-fg ansi-bold">     59</span> with sessions.Session() as session:
+<span class="ansi-green-fg">---&gt; 60</span>     return session.request(method=method, url=url, **kwargs)
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/requests/sessions.py:533</span>, in <span class="ansi-cyan-fg">Session.request</span><span class="ansi-blue-fg">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="ansi-green-intense-fg ansi-bold">    528</span> send_kwargs = {
+<span class="ansi-green-intense-fg ansi-bold">    529</span>     'timeout': timeout,
+<span class="ansi-green-intense-fg ansi-bold">    530</span>     'allow_redirects': allow_redirects,
+<span class="ansi-green-intense-fg ansi-bold">    531</span> }
+<span class="ansi-green-intense-fg ansi-bold">    532</span> send_kwargs.update(settings)
+<span class="ansi-green-fg">--&gt; 533</span> resp = self.send(prep, **send_kwargs)
+<span class="ansi-green-intense-fg ansi-bold">    535</span> return resp
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/requests/sessions.py:646</span>, in <span class="ansi-cyan-fg">Session.send</span><span class="ansi-blue-fg">(self, request, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    643</span> start = preferred_clock()
+<span class="ansi-green-intense-fg ansi-bold">    645</span> # Send the request
+<span class="ansi-green-fg">--&gt; 646</span> r = adapter.send(request, **kwargs)
+<span class="ansi-green-intense-fg ansi-bold">    648</span> # Total elapsed time of the request (approximately)
+<span class="ansi-green-intense-fg ansi-bold">    649</span> elapsed = preferred_clock() - start
+
+File <span class="ansi-green-fg">/usr/lib/python3/dist-packages/requests/adapters.py:516</span>, in <span class="ansi-cyan-fg">HTTPAdapter.send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="ansi-green-intense-fg ansi-bold">    512</span>     if isinstance(e.reason, _SSLError):
+<span class="ansi-green-intense-fg ansi-bold">    513</span>         # This branch is for urllib3 v1.22 and later.
+<span class="ansi-green-intense-fg ansi-bold">    514</span>         raise SSLError(e, request=request)
+<span class="ansi-green-fg">--&gt; 516</span>     raise ConnectionError(e, request=request)
+<span class="ansi-green-intense-fg ansi-bold">    518</span> except ClosedPoolError as e:
+<span class="ansi-green-intense-fg ansi-bold">    519</span>     raise ConnectionError(e, request=request)
+
+<span class="ansi-red-fg">ConnectionError</span>: HTTPSConnectionPool(host='kfc-locations.p.rapidapi.com', port=443): Max retries exceeded with url: /kfc/location/0 (Caused by NewConnectionError('&lt;urllib3.connection.VerifiedHTTPSConnection object at 0x7f179862d040&gt;: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))</pre>
 </div>
 </div>
 
