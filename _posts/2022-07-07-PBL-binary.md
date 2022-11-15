@@ -1,5 +1,5 @@
 ---
-title: Binary Math
+title: Binary Maths
 layout: default
 description: A Binary Math illustrative application using HTML, Liquid, and JavaScript.
 permalink: /frontend/binary
