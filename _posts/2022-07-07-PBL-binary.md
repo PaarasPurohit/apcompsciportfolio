@@ -60,9 +60,13 @@ tags: [html, liquid, javascript]
             </table>
         </div>
     </div>
+    <div style="padding:25%; color:white;">
+        <p></p>
+    </div>
 </div>
 
 <script>
+    let hexValue = 0
     const BITS = {{ BITS }};
     const MAX = 2 ** BITS - 1;
     const MSG_ON = "Turn on";
@@ -85,6 +89,7 @@ tags: [html, liquid, javascript]
         document.getElementById('octal').innerHTML = parseInt(binary, 2).toString(8);
         // Hexadecimal conversion
         document.getElementById('hexadecimal').innerHTML = parseInt(binary, 2).toString(16);
+        hexValue = parseInt(binary, 2).toString(16);
         // Decimal conversion
         document.getElementById('decimal').innerHTML = parseInt(binary, 2).toString();
     }

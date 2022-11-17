@@ -15,3 +15,6 @@ Note to self: Put some important notes/vocab here when needed throughout the yea
 | Pull Request | A request from an editor or user IP to access, or pull, the code from a repository to said editor/user IP |
 | Push | To make the changes made in the editor updated to change the main repository |
 | VsCode | A Microsoft text editor and IDE |
+| Metadata |  |
+| Collegeboard Arrays | These arrays always have a base index of 1 |
+| Pre-Processor Step | A script that converts repository code to interpretable HTML code |
