@@ -12,7 +12,7 @@ tags: [html, liquid, javascript]
 <!-- Hack 2: change to 24 bits and add a color code and display color when 24 bits, think about display on this one -->
 <!-- Hack 3: do your own thing -->
 
-{% assign BITS = 3 %}
+{% assign BITS = 24 %}
 
 <div class="container bg-primary">
     <header class="pb-3 mb-4 border-bottom border-primary text-dark">
@@ -66,7 +66,7 @@ tags: [html, liquid, javascript]
 </div>
 
 <script>
-    let hexValue = 0
+    let hexValue = "";
     const BITS = {{ BITS }};
     const MAX = 2 ** BITS - 1;
     const MSG_ON = "Turn on";
