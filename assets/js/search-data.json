@@ -123,10 +123,10 @@
   
     
         ,"post11": {
-            "title": "Title",
+            "title": "Week 18 Hacks",
             "content": "from datetime import date def calculate_age(born): today = date.today() return today.year - born.year - ((today.month, today.day) &lt; (born.month, born.day)) dob = date(2004, 12, 31) age = calculate_age(dob) . class Student: def __init__(self, classOf, name): self.classOf = classOf self.age = age @property def classOf(self): return self.classOf @classOf.setter def classOf(self, classOf): self.classOf = classOf @property def age(self): return self.age @property def name(self): return self.name @name.setter def name(self, name): self.name = name stu = Student(classOf=2025, name=&quot;Paaras&quot;) users = [stu] json_string = json.dumps([vars(user) for user in users]) print(json_string) .",
-            "url": "https://paaraspurohit.com/apcompsciportfolio/2023/01/10/weekeighteen.html",
-            "relUrl": "/2023/01/10/weekeighteen.html",
+            "url": "https://paaraspurohit.com/apcompsciportfolio/weekeighteenhacks",
+            "relUrl": "/weekeighteenhacks",
             "date": " • Jan 10, 2023"
         }
         
