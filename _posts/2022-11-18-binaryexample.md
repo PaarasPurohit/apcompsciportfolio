@@ -1,6 +1,6 @@
 ---
 title: Binary Example
-layout: default
+layout: base
 description: Example of Binary in Conditionals
 permalink: /binary-example
 image: /images/binary.png
