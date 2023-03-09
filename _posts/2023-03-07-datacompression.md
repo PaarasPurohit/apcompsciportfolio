@@ -1,5 +1,6 @@
 ---
 keywords: fastai
+description: AP Prep Also Included
 title: Playing With the Programming Paradigms - Images
 toc: true
 categories: [units]
@@ -18,6 +19,13 @@ layout: notebook
 
 <div class="container" id="notebook-container">
         
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Red-Scale-Imaging">Red Scale Imaging<a class="anchor-link" href="#Red-Scale-Imaging"> </a></h3><p>The following code uses <em>pathlib</em> to grab the image from the desired path. It uses <em>PIL</em> and <em>io</em> to read the file, then uses <em>numpy</em></p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
