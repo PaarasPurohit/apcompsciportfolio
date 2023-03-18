@@ -10,8 +10,8 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Using Programs with Data is focused on SQL and database actions. Part A focuses on SQLAlchemy and an OOP programming style," />
 <meta property="og:description" content="Using Programs with Data is focused on SQL and database actions. Part A focuses on SQLAlchemy and an OOP programming style," />
-<link rel="canonical" href="https://paaraspurohit.com/apcompsciportfolio/2023/03/13/AP-unit2-4a.html" />
-<meta property="og:url" content="https://paaraspurohit.com/apcompsciportfolio/2023/03/13/AP-unit2-4a.html" />
+<link rel="canonical" href="https://paaraspurohit.com/apcompsciportfolio/first-database-example" />
+<meta property="og:url" content="https://paaraspurohit.com/apcompsciportfolio/first-database-example" />
 <meta property="og:site_name" content="Paaras Purohit - AP Computer Science Portfolio" />
 <meta property="og:image" content="https://paaraspurohit.com/apcompsciportfolio/images/python.png" />
 <meta property="og:type" content="article" />
@@ -20,7 +20,7 @@
 <meta property="twitter:image" content="https://paaraspurohit.com/apcompsciportfolio/images/python.png" />
 <meta property="twitter:title" content="Unit 2.4a Using Programs with Data, SQLAlchemy" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-13T00:00:00-05:00","datePublished":"2023-03-13T00:00:00-05:00","description":"Using Programs with Data is focused on SQL and database actions. Part A focuses on SQLAlchemy and an OOP programming style,","headline":"Unit 2.4a Using Programs with Data, SQLAlchemy","image":"https://paaraspurohit.com/apcompsciportfolio/images/python.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://paaraspurohit.com/apcompsciportfolio/2023/03/13/AP-unit2-4a.html"},"url":"https://paaraspurohit.com/apcompsciportfolio/2023/03/13/AP-unit2-4a.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-13T00:00:00-05:00","datePublished":"2023-03-13T00:00:00-05:00","description":"Using Programs with Data is focused on SQL and database actions. Part A focuses on SQLAlchemy and an OOP programming style,","headline":"Unit 2.4a Using Programs with Data, SQLAlchemy","image":"https://paaraspurohit.com/apcompsciportfolio/images/python.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://paaraspurohit.com/apcompsciportfolio/first-database-example"},"url":"https://paaraspurohit.com/apcompsciportfolio/first-database-example"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/apcompsciportfolio/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://paaraspurohit.com/apcompsciportfolio/feed.xml" title="Paaras Purohit - AP Computer Science Portfolio" /><link rel="shortcut icon" type="image/x-icon" href="/apcompsciportfolio/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -291,12 +291,16 @@ window.onload = wrap_img;
     <span class="n">_name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">_uid</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">_password</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_calories</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">_sport</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">_dob</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span>
 
     <span class="c1"># constructor of a User object, initializes the instance variables within object (self)</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">"123qwerty"</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">calories</span><span class="p">,</span> <span class="n">sport</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">"123qwerty"</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>    <span class="c1"># variables with self prefix become part of the object, </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_uid</span> <span class="o">=</span> <span class="n">uid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calories</span> <span class="o">=</span> <span class="n">calories</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sport</span> <span class="o">=</span> <span class="n">sport</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dob</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># not a date type     </span>
             <span class="n">dob</span> <span class="o">=</span> <span class="n">date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
@@ -325,6 +329,23 @@ window.onload = wrap_img;
     <span class="c1"># check if uid parameter matches user id in object, return boolean</span>
     <span class="k">def</span> <span class="nf">is_uid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_uid</span> <span class="o">==</span> <span class="n">uid</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">calories</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calories</span>
+    
+    <span class="c1"># a setter function, allows uid to be updated after initial object creation</span>
+    <span class="nd">@calories</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">calories</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">calories</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calories</span> <span class="o">=</span> <span class="n">calories</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sport</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sport</span>
+    
+    <span class="nd">@sport</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sport</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sport</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sport</span> <span class="o">=</span> <span class="n">sport</span>
     
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">password</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -384,6 +405,8 @@ window.onload = wrap_img;
             <span class="s2">"id"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
             <span class="s2">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
             <span class="s2">"uid"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="s2">"calories"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">calories</span><span class="p">,</span>
+            <span class="s2">"sport"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sport</span><span class="p">,</span>
             <span class="s2">"dob"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dob</span><span class="p">,</span>
             <span class="s2">"age"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">,</span>
         <span class="p">}</span>
@@ -454,12 +477,12 @@ window.onload = wrap_img;
         <span class="sd">"""Create database and tables"""</span>
         <span class="n">db</span><span class="o">.</span><span class="n">create_all</span><span class="p">()</span>
         <span class="sd">"""Tester data for table"""</span>
-        <span class="n">u1</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Thomas Edison'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'toby'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123toby'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1847</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
-        <span class="n">u2</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Nikola Tesla'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'niko'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123niko'</span><span class="p">)</span>
-        <span class="n">u3</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Alexander Graham Bell'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'lex'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123lex'</span><span class="p">)</span>
-        <span class="n">u4</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Eli Whitney'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'whit'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123whit'</span><span class="p">)</span>
-        <span class="n">u5</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Indiana Jones'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'indi'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
-        <span class="n">u6</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Marion Ravenwood'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'raven'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1921</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+        <span class="n">u1</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Thomas Edison'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'toby'</span><span class="p">,</span> <span class="n">calories</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">sport</span><span class="o">=</span><span class="s2">"Basketball"</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123toby'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1847</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+        <span class="n">u2</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Nikola Tesla'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'niko'</span><span class="p">,</span> <span class="n">calories</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span> <span class="n">sport</span><span class="o">=</span><span class="s2">"Baseball"</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123niko'</span><span class="p">)</span>
+        <span class="n">u3</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Alexander Graham Bell'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'lex'</span><span class="p">,</span> <span class="n">calories</span><span class="o">=</span><span class="mi">1750</span><span class="p">,</span> <span class="n">sport</span><span class="o">=</span><span class="s2">"Swimming"</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123lex'</span><span class="p">)</span>
+        <span class="n">u4</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Eli Whitney'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'whit'</span><span class="p">,</span> <span class="n">calories</span><span class="o">=</span><span class="mi">2100</span><span class="p">,</span> <span class="n">sport</span><span class="o">=</span><span class="s2">"Racquetball"</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'123whit'</span><span class="p">)</span>
+        <span class="n">u5</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Indiana Jones'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'indi'</span><span class="p">,</span> <span class="n">calories</span><span class="o">=</span><span class="mi">2255</span><span class="p">,</span> <span class="n">sport</span><span class="o">=</span><span class="s2">"Water Polo"</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+        <span class="n">u6</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Marion Ravenwood'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s1">'raven'</span><span class="p">,</span> <span class="n">calories</span><span class="o">=</span><span class="mi">1775</span><span class="p">,</span> <span class="n">sport</span><span class="o">=</span><span class="s2">"Soccer"</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1921</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
 
 
         <span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">,</span> <span class="n">u4</span><span class="p">,</span> <span class="n">u5</span><span class="p">,</span> <span class="n">u6</span><span class="p">]</span>
@@ -487,12 +510,12 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Records exist uid toby, or error.
-Records exist uid niko, or error.
-Records exist uid lex, or error.
-Records exist uid whit, or error.
-Records exist uid indi, or error.
-Records exist uid raven, or error.
+<pre>Created new uid toby
+Created new uid niko
+Created new uid lex
+Created new uid whit
+Created new uid indi
+Created new uid raven
 </pre>
 </div>
 </div>
@@ -597,11 +620,15 @@ Records exist uid raven, or error.
     <span class="c1"># request value that ensure creating valid object</span>
     <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your name:"</span><span class="p">)</span>
     <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your password"</span><span class="p">)</span>
+    <span class="n">calories</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What is your maximum calorie amount?"</span><span class="p">)</span>
+    <span class="n">sport</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What sport do you play?"</span><span class="p">)</span>
     
     <span class="c1"># Initialize User object before date</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> 
                 <span class="n">uid</span><span class="o">=</span><span class="n">uid</span><span class="p">,</span> 
-                <span class="n">password</span><span class="o">=</span><span class="n">password</span>
+                <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+                <span class="n">calories</span><span class="o">=</span><span class="n">calories</span><span class="p">,</span>
+                <span class="n">sport</span><span class="o">=</span><span class="n">sport</span><span class="p">,</span>
                 <span class="p">)</span>
     
     <span class="c1"># create user.dob, fail with today as dob</span>
@@ -633,8 +660,9 @@ Records exist uid raven, or error.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Created
- {'id': 7, 'name': 'Paaras', 'uid': 'Paaras Purohit', 'dob': '08-01-2007', 'age': 15}
+<pre>Invalid date 08-01-2007 require YYYY-mm-dd, date defaulted to 03-18-2023
+Created
+ {'id': 7, 'name': 'Paaras', 'uid': 'PaarasPurohit', 'calories': '1819', 'sport': 'Tennis', 'dob': '03-18-2023', 'age': 0}
 </pre>
 </div>
 </div>
@@ -697,38 +725,52 @@ Records exist uid raven, or error.
 <pre>[{'id': 1,
   'name': 'Thomas Edison',
   'uid': 'toby',
+  'calories': '2000',
+  'sport': 'Basketball',
   'dob': '02-11-1847',
   'age': 176},
  {'id': 2,
   'name': 'Nikola Tesla',
   'uid': 'niko',
-  'dob': '03-15-2023',
+  'calories': '1800',
+  'sport': 'Baseball',
+  'dob': '03-18-2023',
   'age': 0},
  {'id': 3,
   'name': 'Alexander Graham Bell',
   'uid': 'lex',
-  'dob': '03-15-2023',
+  'calories': '1750',
+  'sport': 'Swimming',
+  'dob': '03-18-2023',
   'age': 0},
  {'id': 4,
   'name': 'Eli Whitney',
   'uid': 'whit',
-  'dob': '03-15-2023',
+  'calories': '2100',
+  'sport': 'Racquetball',
+  'dob': '03-18-2023',
   'age': 0},
  {'id': 5,
   'name': 'Indiana Jones',
   'uid': 'indi',
+  'calories': '2255',
+  'sport': 'Water Polo',
   'dob': '10-21-1920',
   'age': 102},
  {'id': 6,
   'name': 'Marion Ravenwood',
   'uid': 'raven',
+  'calories': '1775',
+  'sport': 'Soccer',
   'dob': '10-21-1921',
   'age': 101},
  {'id': 7,
   'name': 'Paaras',
-  'uid': 'Paaras Purohit',
-  'dob': '08-01-2007',
-  'age': 15}]</pre>
+  'uid': 'PaarasPurohit',
+  'calories': '1819',
+  'sport': 'Tennis',
+  'dob': '03-18-2023',
+  'age': 0}]</pre>
 </div>
 
 </div>
@@ -762,7 +804,7 @@ Records exist uid raven, or error.
 
 
 
-  </div><a class="u-url" href="/apcompsciportfolio/2023/03/13/AP-unit2-4a.html" hidden></a>
+  </div><a class="u-url" href="/apcompsciportfolio/first-database-example" hidden></a>
 </article>
 
       </div>
