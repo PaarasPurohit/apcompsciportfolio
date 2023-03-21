@@ -510,12 +510,12 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Created new uid toby
-Created new uid niko
-Created new uid lex
-Created new uid whit
-Created new uid indi
-Created new uid raven
+<pre>Records exist uid toby, or error.
+Records exist uid niko, or error.
+Records exist uid lex, or error.
+Records exist uid whit, or error.
+Records exist uid indi, or error.
+Records exist uid raven, or error.
 </pre>
 </div>
 </div>
@@ -660,9 +660,8 @@ Created new uid raven
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Invalid date 08-01-2007 require YYYY-mm-dd, date defaulted to 03-18-2023
-Created
- {'id': 7, 'name': 'Paaras', 'uid': 'PaarasPurohit', 'calories': '1819', 'sport': 'Tennis', 'dob': '03-18-2023', 'age': 0}
+<pre>Created
+ {'id': 7, 'name': 'Paaras Mandar Purohit', 'uid': 'p_purohit', 'calories': '1819', 'sport': 'Tennis', 'dob': '08-01-2007', 'age': 15}
 </pre>
 </div>
 </div>
@@ -765,14 +764,99 @@ Created
   'dob': '10-21-1921',
   'age': 101},
  {'id': 7,
-  'name': 'Paaras',
-  'uid': 'PaarasPurohit',
+  'name': 'Paaras Mandar Purohit',
+  'uid': 'p_purohit',
   'calories': '1819',
   'sport': 'Tennis',
-  'dob': '03-18-2023',
-  'age': 0}]</pre>
+  'dob': '08-01-2007',
+  'age': 15}]</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter user ID: "</span><span class="p">)</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">_uid</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+            <span class="n">new_password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter new password: "</span><span class="p">)</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">_password</span> <span class="o">=</span> <span class="n">new_password</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">return</span> <span class="s2">"Password updated successfully!"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"User not found!"</span>
+<span class="n">update</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'Password updated successfully!'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">delete_user</span><span class="p">():</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the user id of the user you want to delete: "</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="n">user_to_delete</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">_uid</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">user_to_delete</span><span class="p">:</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">user_to_delete</span><span class="p">)</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"User with id </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> deleted successfully!"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No user with id </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> found."</span><span class="p">)</span>
+<span class="n">delete_user</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>User with id p_purohit deleted successfully!
+</pre>
+</div>
 </div>
 
 </div>
