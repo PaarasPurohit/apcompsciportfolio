@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Parallel Computing, Hashmaps | Paaras Purohit - AP Computer Science Portfolio</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Parallel Computing, Hashmaps" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The portfolio for Paaras Purohit in AP Computer Science" />
+<meta property="og:description" content="The portfolio for Paaras Purohit in AP Computer Science" />
+<link rel="canonical" href="https://paaraspurohit.com/apcompsciportfolio/parallel-computing-hashmaps" />
+<meta property="og:url" content="https://paaraspurohit.com/apcompsciportfolio/parallel-computing-hashmaps" />
+<meta property="og:site_name" content="Paaras Purohit - AP Computer Science Portfolio" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-30T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Parallel Computing, Hashmaps" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-30T00:00:00-05:00","datePublished":"2023-03-30T00:00:00-05:00","description":"The portfolio for Paaras Purohit in AP Computer Science","headline":"Parallel Computing, Hashmaps","mainEntityOfPage":{"@type":"WebPage","@id":"https://paaraspurohit.com/apcompsciportfolio/parallel-computing-hashmaps"},"url":"https://paaraspurohit.com/apcompsciportfolio/parallel-computing-hashmaps"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/apcompsciportfolio/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://paaraspurohit.com/apcompsciportfolio/feed.xml" title="Paaras Purohit - AP Computer Science Portfolio" /><link rel="shortcut icon" type="image/x-icon" href="/apcompsciportfolio/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/apcompsciportfolio/">Paaras Purohit - AP Computer Science Portfolio</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/apcompsciportfolio/about/">About Me</a><a class="page-link" href="/apcompsciportfolio/javascript/">JavaScript</a><a class="page-link" href="/apcompsciportfolio/notes-and-vocab/">Notes &amp; Vocab</a><a class="page-link" href="/apcompsciportfolio/search/">Search</a><a class="page-link" href="/apcompsciportfolio/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Parallel Computing, Hashmaps</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-30T00:00:00-05:00" itemprop="datePublished">
+        Mar 30, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/apcompsciportfolio/categories/#units">units</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/PaarasPurohit/apcompsciportfolio/tree/master/_notebooks/2023-03-30-para-comp-hs.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/apcompsciportfolio/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/PaarasPurohit/apcompsciportfolio/master?filepath=_notebooks%2F2023-03-30-para-comp-hs.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/apcompsciportfolio/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/PaarasPurohit/apcompsciportfolio/blob/master/_notebooks/2023-03-30-para-comp-hs.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/apcompsciportfolio/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FPaarasPurohit%2Fapcompsciportfolio%2Fblob%2Fmaster%2F_notebooks%2F2023-03-30-para-comp-hs.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/apcompsciportfolio/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Parallel-Programming-Hacks">Parallel Programming Hacks </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Example-1:">Example 1: </a></li>
+<li class="toc-entry toc-h2"><a href="#Example-2:">Example 2: </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Hashmapping-Hacks">Hashmapping Hacks </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Taylor-Swift">Taylor Swift </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-03-30-para-comp-hs.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Parallel-Programming-Hacks">
+<a class="anchor" href="#Parallel-Programming-Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parallel Programming Hacks<a class="anchor-link" href="#Parallel-Programming-Hacks"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-1:">
+<a class="anchor" href="#Example-1:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1:<a class="anchor-link" href="#Example-1:"> </a>
+</h2>
+<p>A particular computer has two identical processors which can run in parallel. Each process must be executed on a single processor and each processor can only run one process at a time.</p>
+<p>The table below lists the amount of time it takes to execute each of the processes on a single computer. None of the processes are dependent on any of the others.</p>
+<p>What is the minimum amount of time (approximate) to execute all three processes when the two processors are run in parallel?</p>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Execution Time on Either Processor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X</td>
+<td>50 seconds</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>10 seconds</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>30 seconds</td>
+</tr>
+</tbody>
+</table>
+<p>Answer: 50 seconds.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-2:">
+<a class="anchor" href="#Example-2:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2:<a class="anchor-link" href="#Example-2:"> </a>
+</h2>
+<p>A computer has two duplicate processors that are able to run in parallel. The table below shows the amount of time it takes each processor to execute each of two processes. Neither of the processes is dependent on the other.</p>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Execution Time on Either</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>25 seconds</td>
+</tr>
+<tr>
+<td>B</td>
+<td>45 seconds</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What is the difference in execution time between running the two processes in parallel in place of running one after the other on a single processor?</strong></p>
+<p>Sequential = 70 seconds</p>
+<p>Parallel = 25 seconds</p>
+<p><strong>Difference = 45 seconds</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>                       <span class="c1"># mapping to square each number in a list of numbers #</span>
+
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">nums</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original List: </span><span class="si">{</span><span class="n">nums</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Squares: </span><span class="si">{</span><span class="n">squares</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Original List: [1, 2, 3, 4, 5]
+Squares: [1, 4, 9, 16, 25]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Hashmapping-Hacks">
+<a class="anchor" href="#Hashmapping-Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hashmapping Hacks<a class="anchor-link" href="#Hashmapping-Hacks"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xeem</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"artist_name"</span><span class="p">:</span> <span class="s2">"Lil' Xeem"</span><span class="p">,</span>
+    <span class="s2">"real_name"</span><span class="p">:</span> <span class="s2">"Azeem Khan"</span><span class="p">,</span>
+    <span class="s2">"explicit"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">"genres"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Hip-Hop"</span><span class="p">,</span> <span class="s2">"R&amp;B"</span><span class="p">],</span>
+    <span class="s2">"platforms"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Spotify"</span><span class="p">,</span> <span class="s2">"Soundcloud"</span><span class="p">,</span> <span class="s2">"Apple Music"</span><span class="p">,</span> <span class="s2">"Amazon Music"</span><span class="p">,</span> <span class="s2">"Deezer"</span><span class="p">,</span> <span class="s2">"YouTube Music"</span><span class="p">],</span>
+    <span class="s2">"recent_tracks"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">"Lil Bish"</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">"romantic homicide"</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="s2">"Go"</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="s2">"Solo"</span><span class="p">,</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="s2">"Runnin'"</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="s2">"Matte Black"</span><span class="p">,</span>
+        <span class="mi">7</span><span class="p">:</span> <span class="s2">"Real"</span><span class="p">,</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="s2">"tbh"</span><span class="p">,</span>
+        <span class="mi">9</span><span class="p">:</span> <span class="s2">"Don't Know Why"</span><span class="p">,</span>
+        <span class="mi">10</span><span class="p">:</span> <span class="s2">"Not Gang"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">stingr</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"artist_name"</span><span class="p">:</span> <span class="s2">"Stingr"</span><span class="p">,</span>
+    <span class="s2">"real_name"</span><span class="p">:</span> <span class="s2">"Paaras Mandar Vikas Dnyaneshwar Purohit"</span><span class="p">,</span>
+    <span class="s2">"explicit"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">"genres"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Hip-Hop"</span><span class="p">,</span> <span class="s2">"Rap"</span><span class="p">,</span> <span class="s2">"R&amp;B"</span><span class="p">,</span> <span class="s2">"Pop"</span><span class="p">,</span> <span class="s2">"Rock"</span><span class="p">],</span>
+    <span class="s2">"recent_tracks"</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">"Chillin' &amp; Groovin'"</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">"Lenses"</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="s2">"Hey, It's Me From High School"</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="s2">"Run Away"</span><span class="p">,</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="s2">"Loco Tres"</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="s2">"Thought So"</span><span class="p">,</span>
+        <span class="mi">7</span><span class="p">:</span> <span class="s2">"ROCKIN DESIGNER"</span><span class="p">,</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="s2">"My Problems"</span><span class="p">,</span>
+        <span class="mi">9</span><span class="p">:</span> <span class="s2">"Butterfly Doors"</span><span class="p">,</span>
+        <span class="mi">10</span><span class="p">:</span> <span class="s2">"Real Wildin'"</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">xeem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'recent_tracks'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stingr</span><span class="p">[</span><span class="s1">'recent_tracks'</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">xeem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'recent_tracks'</span><span class="p">)[</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stingr</span><span class="p">[</span><span class="s1">'recent_tracks'</span><span class="p">][</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{1: 'Lil Bish', 2: 'romantic homicide', 3: 'Go', 4: 'Solo', 5: "Runnin'", 6: 'Matte Black', 7: 'Real', 8: 'tbh', 9: "Don't Know Why", 10: 'Not Gang'}
+{1: "Chillin' &amp; Groovin'", 2: 'Lenses', 3: "Hey, It's Me From High School", 4: 'Run Away', 5: 'Loco Tres', 6: 'Thought So', 7: 'ROCKIN DESIGNER', 8: 'My Problems', 9: 'Butterfly Doors', 10: "Real Wildin'"}
+Not Gang
+Real Wildin'
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stingr</span><span class="p">[</span><span class="s2">"features"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">'GTRARI'</span><span class="p">,</span> <span class="s1">'Beware'</span><span class="p">,</span> <span class="s1">'BOB Ramaz'</span><span class="p">,</span> <span class="s1">'ABH'</span><span class="p">,</span> <span class="s1">'Evvan'</span><span class="p">,</span> <span class="s1">'Beware'</span><span class="p">])</span>
+<span class="c1"># In the above code, the feature "Beware" is repeated twice. The set() method, however</span>
+<span class="c1"># removes the duplicate</span>
+<span class="n">xeem</span><span class="p">[</span><span class="s2">"features"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">"Copaine"</span><span class="p">,</span> <span class="s2">"djphatjive"</span><span class="p">,</span> <span class="s2">"Foley"</span><span class="p">,</span> <span class="s2">"Foley"</span><span class="p">,</span> <span class="s2">"Copaine"</span><span class="p">])</span>
+<span class="c1"># In the above code, the features "Copaine" and "Foley" are repeated twice. The set() method,</span>
+<span class="c1"># however, removes the duplicate</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">stingr</span><span class="p">[</span><span class="s2">"features"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xeem</span><span class="p">[</span><span class="s2">"features"</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{'BOB Ramaz', 'GTRARI', 'Evvan', 'ABH', 'Beware'}
+{'Copaine', 'Foley', 'djphatjive'}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">stingr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>artist_name: Stingr
+real_name: Paaras Mandar Vikas Dnyaneshwar Purohit
+explicit: False
+genres: ['Hip-Hop', 'Rap', 'R&amp;B', 'Pop', 'Rock']
+recent_tracks: {1: "Chillin' &amp; Groovin'", 2: 'Lenses', 3: "Hey, It's Me From High School", 4: 'Run Away', 5: 'Loco Tres', 6: 'Thought So', 7: 'ROCKIN DESIGNER', 8: 'My Problems', 9: 'Butterfly Doors', 10: "Real Wildin'"}
+features: {'BOB Ramaz', 'GTRARI', 'Evvan', 'ABH', 'Beware'}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">xeem</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>artist_name: Lil' Xeem
+real_name: Azeem Khan
+explicit: True
+genres: ['Hip-Hop', 'R&amp;B']
+platforms: ['Spotify', 'Soundcloud', 'Apple Music', 'Amazon Music', 'Deezer', 'YouTube Music']
+recent_tracks: {1: 'Lil Bish', 2: 'romantic homicide', 3: 'Go', 4: 'Solo', 5: "Runnin'", 6: 'Matte Black', 7: 'Real', 8: 'tbh', 9: "Don't Know Why", 10: 'Not Gang'}
+features: {'Copaine', 'Foley', 'djphatjive'}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">search</span><span class="p">():</span>
+    <span class="n">artist</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="n">which_artist</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Which artist would you like to know about, Stingr or Lil Xeem?"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">which_artist</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"stingr"</span><span class="p">:</span>
+        <span class="n">artist</span> <span class="o">=</span> <span class="n">stingr</span>
+    <span class="k">elif</span> <span class="n">which_artist</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"lil xeem"</span><span class="p">:</span>
+        <span class="n">artist</span> <span class="o">=</span> <span class="n">xeem</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid Search"</span><span class="p">)</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What would you like to know about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">which_artist</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"?"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid Search"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">artist</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">lower</span><span class="p">()))</span>
+
+<span class="n">search</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{1: "Chillin' &amp; Groovin'", 2: 'Lenses', 3: "Hey, It's Me From High School", 4: 'Run Away', 5: 'Loco Tres', 6: 'Thought So', 7: 'ROCKIN DESIGNER', 8: 'My Problems', 9: 'Butterfly Doors', 10: "Real Wildin'"}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Taylor-Swift">
+<a class="anchor" href="#Taylor-Swift" aria-hidden="true"><span class="octicon octicon-link"></span></a>Taylor Swift<a class="anchor-link" href="#Taylor-Swift"> </a>
+</h2>
+<p>I have already presented my case to the entire class. Mr. Yeung, if you're reading this, just know that I am always available to sing "Shake It Off" or "Ours" in front of the class.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/apcompsciportfolio/parallel-computing-hashmaps" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/apcompsciportfolio/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://paaraspurohit.com/apcompsciportfolio/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/apcompsciportfolio/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>The portfolio for Paaras Purohit in AP Computer Science</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="” https://github.com/nighthawkcoders “" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/apcompsciportfolio/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="” https://twitter.com/NighthawkCoding “" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/apcompsciportfolio/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="” https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q “" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/apcompsciportfolio/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
