@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      7 min read
     
 </span></p>
 
@@ -133,6 +133,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#Hashmapping-Hacks">Hashmapping Hacks </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Taylor-Swift">Taylor Swift </a></li>
+<li class="toc-entry toc-h2"><a href="#Extra:-APCSA-Skits-in-This-Week's-Hacks">Extra: APCSA Skits in This Week&#39;s Hacks </a></li>
 </ul>
 </li>
 </ul><!--
@@ -539,6 +540,208 @@ features: {'Copaine', 'Foley', 'djphatjive'}
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Extra:-APCSA-Skits-in-This-Week's-Hacks">
+<a class="anchor" href="#Extra:-APCSA-Skits-in-This-Week's-Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extra: APCSA Skits in This Week's Hacks<a class="anchor-link" href="#Extra:-APCSA-Skits-in-This-Week's-Hacks"> </a>
+</h2>
+<p>I had the opportunity this friday to see the Algo-Rhythmic performances by the APCSA classes. In these algo-rhythms, APCSA students used fictional scenarios to depict different sorting algorithms.</p>
+<p>Two of these skits stuck with me:</p>
+<ul>
+<li>
+<strong>Attendance</strong>. A teacher's students are all out of order, and he needs to use an algorithm to sort the students by ID number. The teacher uses the Bogosort algorithm, which is one of the most inefficient sorting algorithms, to shuffle the students' order until they are sorted from least to greatest ID number.</li>
+<li>
+<strong>Turtles</strong>. A zookeeper has to do about the same thing, but this time, with the ID of turtles in a zoo. The zookeeper uses selection sort to find the least ID number, set that as the minimum, sort accordingly, find the second least ID number, and repeat until all the numbers are sorted.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As I watched the two performances, I thought about how they relate to what we learned in this week's hacks. Below is an example of how Bogosort can be combined with what we learned in parallel programming and hashing/collisions (Note that as Bogosort is very inefficient, with the time complexity being O(n!), I had to interrupt the program multiple times as it took too long):</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+
+<span class="k">def</span> <span class="nf">is_sorted</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Checks if the given list is sorted in non-descending order.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">bogosort</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">num_procs</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Sorts the given list using the Bogosort algorithm in parallel.</span>
+
+<span class="sd">    num_procs: The number of processes to use for sorting.</span>
+<span class="sd">    """</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">num_procs</span><span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">is_sorted</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+        <span class="n">chunks</span> <span class="o">=</span> <span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span><span class="o">//</span><span class="n">num_procs</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span><span class="o">//</span><span class="n">num_procs</span><span class="p">)]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="n">sort_chunk</span><span class="p">,</span> <span class="n">chunks</span><span class="p">)</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">lst</span>
+
+<span class="k">def</span> <span class="nf">sort_chunk</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Sorts a chunk of the given list using the Bogosort algorithm.</span>
+<span class="sd">    """</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">is_sorted</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Unsorted list:'</span><span class="p">,</span> <span class="n">lst</span><span class="p">)</span>
+    <span class="n">sorted_lst</span> <span class="o">=</span> <span class="n">bogosort</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Sorted list:'</span><span class="p">,</span> <span class="n">sorted_lst</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Unsorted list: [90, 87, 9]
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb Cell 16</span> in <span class="ansi-cyan-fg">&lt;cell line: 33&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu-20.04/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb#X21sdnNjb2RlLXJlbW90ZQ%3D%3D?line=33'&gt;34&lt;/a&gt;</span> lst = [random.randint(1, 100) for _ in range(3)]
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu-20.04/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb#X21sdnNjb2RlLXJlbW90ZQ%3D%3D?line=34'&gt;35&lt;/a&gt;</span> print('Unsorted list:', lst)
+<span class="ansi-green-fg">---&gt; &lt;a href='vscode-notebook-cell://wsl%2Bubuntu-20.04/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb#X21sdnNjb2RlLXJlbW90ZQ%3D%3D?line=35'&gt;36&lt;/a&gt;</span> sorted_lst = bogosort(lst, 2)
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu-20.04/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb#X21sdnNjb2RlLXJlbW90ZQ%3D%3D?line=36'&gt;37&lt;/a&gt;</span> print('Sorted list:', sorted_lst)
+
+<span class="ansi-green-intense-fg ansi-bold">/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb Cell 16</span> in <span class="ansi-cyan-fg">bogosort</span><span class="ansi-blue-fg">(lst, num_procs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu-20.04/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb#X21sdnNjb2RlLXJlbW90ZQ%3D%3D?line=17'&gt;18&lt;/a&gt;</span>     chunks = [lst[i:i+len(lst)//num_procs] for i in range(0, len(lst), len(lst)//num_procs)]
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu-20.04/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb#X21sdnNjb2RlLXJlbW90ZQ%3D%3D?line=18'&gt;19&lt;/a&gt;</span>     results = pool.map_async(sort_chunk, chunks)
+<span class="ansi-green-fg">---&gt; &lt;a href='vscode-notebook-cell://wsl%2Bubuntu-20.04/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb#X21sdnNjb2RlLXJlbW90ZQ%3D%3D?line=19'&gt;20&lt;/a&gt;</span>     lst = [item for sublist in results.get() for item in sublist]
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu-20.04/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb#X21sdnNjb2RlLXJlbW90ZQ%3D%3D?line=20'&gt;21&lt;/a&gt;</span> pool.close()
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://wsl%2Bubuntu-20.04/home/paaras_purohit/vscode/apcompsciportfolio/_notebooks/2023-03-30-para-comp-hs.ipynb#X21sdnNjb2RlLXJlbW90ZQ%3D%3D?line=21'&gt;22&lt;/a&gt;</span> pool.join()
+
+File <span class="ansi-green-fg">~/anaconda3/lib/python3.9/multiprocessing/pool.py:765</span>, in <span class="ansi-cyan-fg">ApplyResult.get</span><span class="ansi-blue-fg">(self, timeout)</span>
+<span class="ansi-green-intense-fg ansi-bold">    764</span> def get(self, timeout=None):
+<span class="ansi-green-fg">--&gt; 765</span>     self.wait(timeout)
+<span class="ansi-green-intense-fg ansi-bold">    766</span>     if not self.ready():
+<span class="ansi-green-intense-fg ansi-bold">    767</span>         raise TimeoutError
+
+File <span class="ansi-green-fg">~/anaconda3/lib/python3.9/multiprocessing/pool.py:762</span>, in <span class="ansi-cyan-fg">ApplyResult.wait</span><span class="ansi-blue-fg">(self, timeout)</span>
+<span class="ansi-green-intense-fg ansi-bold">    761</span> def wait(self, timeout=None):
+<span class="ansi-green-fg">--&gt; 762</span>     self._event.wait(timeout)
+
+File <span class="ansi-green-fg">~/anaconda3/lib/python3.9/threading.py:574</span>, in <span class="ansi-cyan-fg">Event.wait</span><span class="ansi-blue-fg">(self, timeout)</span>
+<span class="ansi-green-intense-fg ansi-bold">    572</span> signaled = self._flag
+<span class="ansi-green-intense-fg ansi-bold">    573</span> if not signaled:
+<span class="ansi-green-fg">--&gt; 574</span>     signaled = self._cond.wait(timeout)
+<span class="ansi-green-intense-fg ansi-bold">    575</span> return signaled
+
+File <span class="ansi-green-fg">~/anaconda3/lib/python3.9/threading.py:312</span>, in <span class="ansi-cyan-fg">Condition.wait</span><span class="ansi-blue-fg">(self, timeout)</span>
+<span class="ansi-green-intense-fg ansi-bold">    310</span> try:    # restore state no matter what (e.g., KeyboardInterrupt)
+<span class="ansi-green-intense-fg ansi-bold">    311</span>     if timeout is None:
+<span class="ansi-green-fg">--&gt; 312</span>         waiter.acquire()
+<span class="ansi-green-intense-fg ansi-bold">    313</span>         gotit = True
+<span class="ansi-green-intense-fg ansi-bold">    314</span>     else:
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below is an example of how selection sort can be combined with what we learned about parallel programming and hashing/collisions:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">selection_sort_dict</span><span class="p">(</span><span class="n">dictionary</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Sorts the values in the given dictionary using the selection sort algorithm.</span>
+<span class="sd">    """</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)):</span>
+        <span class="n">min_val</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="n">min_key</span> <span class="o">=</span> <span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">&lt;</span> <span class="n">min_val</span><span class="p">:</span>
+                <span class="n">min_val</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
+                <span class="n">min_key</span> <span class="o">=</span> <span class="n">keys</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">min_key</span> <span class="o">!=</span> <span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">dictionary</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">min_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">min_key</span><span class="p">],</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">dictionary</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="c1"># Example usage:</span>
+    <span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Unsorted dictionary:'</span><span class="p">,</span> <span class="n">my_dict</span><span class="p">)</span>
+    <span class="n">sorted_dict</span> <span class="o">=</span> <span class="n">selection_sort_dict</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Sorted dictionary:'</span><span class="p">,</span> <span class="n">sorted_dict</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Unsorted dictionary: {0: 76, 1: 7, 2: 6, 3: 48, 4: 50, 5: 69, 6: 86, 7: 77, 8: 72, 9: 88}
+Sorted dictionary: {0: 6, 1: 7, 2: 48, 3: 50, 4: 69, 5: 72, 6: 76, 7: 77, 8: 86, 9: 88}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
