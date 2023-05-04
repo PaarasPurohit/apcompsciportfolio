@@ -149,7 +149,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Here-we-go!">Here we go!<a class="anchor-link" href="#Here-we-go!"> </a></h2><p>Establishing Class/User Data and making a new user</p>
-<p>In Python, classes are templates used to create objects, which are instances of those classes. Classes define the data elements (<strong>_</strong>) and methods that describe the behavior of the objects. Let's explore how to define a class and create objects in Python.</p>
+<p>In Python, classes are templates used to create objects, which are instances of those classes. Classes define the data elements (<em>attributes</em>) and methods that describe the behavior of the objects. Let's explore how to define a class and create objects in Python.</p>
 <p>Example: Defining a User class</p>
 
 </div>
@@ -181,7 +181,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this example, we define a User class with a constructor method <strong>init</strong> that takes username and email as arguments. The display_info method is used to print the user information.</p>
-<p>In the context of backend functionality, this class can be used to <strong><strong>, _</strong></strong>, and <strong>_</strong> user data. For example, when a new user signs up for an account, you could create a new User object with their username and email. This object can then be used to perform various operations, such as validating the user's input, storing the user's data in a database, or <strong><strong>__</strong></strong>.</p>
+<p>In the context of backend functionality, this class can be used to <em>create, manage, and manipulate</em> user data. For example, when a new user signs up for an account, you could create a new User object with their username and email. This object can then be used to perform various operations, such as validating the user's input, storing the user's data in a database, or <em>processing user-related requests</em>.</p>
 <p>Creating a new user:</p>
 
 </div>
@@ -208,7 +208,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Lecture-Topics:">Lecture Topics:<a class="anchor-link" href="#Lecture-Topics:"> </a></h2><p>Establishing Class/User Data and making a new user</p>
-<p>In Python, classes are <strong>_</strong> used to create <strong>_</strong>, which are <strong>_</strong> of those classes. Classes define the data elements (attributes) and methods that describe the behavior of the objects. Let's explore how to define a class and create objects in Python.</p>
+<p>In Python, classes are <em>templates used to create objects, which are instances</em> of those classes. Classes define the data elements (attributes) and methods that describe the behavior of the objects. Let's explore how to define a class and create objects in Python.</p>
 <p>Example: Defining a User class</p>
 <p>class User:
     def <strong>init</strong>(self, username, email):
@@ -226,7 +226,7 @@ window.onload = wrap_img;
 new_user.display_info()</p>
 <p>Here, we create a new User object, new_user, with a specified username and email. We then call the display_info method to display the user's information.</p>
 <p>Using property decorators (getter and setter)</p>
-<p><strong>_</strong> allow developers to access and modify instance data more concisely. The @property decorator creates a getter method, while the @attribute.setter decorator creates a setter method.</p>
+<p><em>Property decorators</em> allow developers to access and modify instance data more concisely. The @property decorator creates a getter method, while the @attribute.setter decorator creates a setter method.</p>
 <p>Example:</p>
 
 </div>
@@ -263,7 +263,7 @@ new_user.display_info()</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this example, the Employee class has a name attribute, which is accessed and modified through the name property getter and setter methods. The _name attribute uses an underscore prefix, which is a convention to indicate it should not be accessed directly.</p>
-<p>In the context of backend functionality, this Employee class can be used to model employees within an application. You can create instances of this class to store and manage employee data, and the getter and setter methods can be used to access and modify employee information in a <strong><strong>___</strong></strong>.</p>
+<p>In the context of backend functionality, this Employee class can be used to model employees within an application. You can create instances of this class to store and manage employee data, and the getter and setter methods can be used to access and modify employee information in a <em>controlled way</em>.</p>
 <p>Usage:</p>
 
 </div>
@@ -357,7 +357,7 @@ print(employee.name)</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Students can then practice creating instances of their Car class and using the getter and setter methods to access and modify the car attributes.</p>
-<p>In the context of <strong><strong>_</strong></strong>, this Car class can be used to model cars within an application. You can create instances of this class to store and manage car data, and the getter and setter methods can be used to access and modify car information in a controlled way.</p>
+<p>In the context of <em>backend functionality</em>, this Car class can be used to model cars within an application. You can create instances of this class to store and manage car data, and the getter and setter methods can be used to access and modify car information in a controlled way.</p>
 
 </div>
 </div>
@@ -383,9 +383,9 @@ Working with multiple objects and class attributes
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Databases-and-SQlite">Databases and SQlite<a class="anchor-link" href="#Databases-and-SQlite"> </a></h1><p>SQLite is a ___ library that provides a relational database management system. Unlike other databases, such as MySQL or PostgreSQL, SQLite is embedded within an application, which means it does not require a separate server process to operate. This makes SQLite a great choice for small-scale applications or for use in situations where you don't want to set up a full database server.</p>
-<p>In this lesson, we will be demonstrating how to set up a SQLite database in Flask, which provides an easy-to-use interface for interacting with SQLite databases, and we'll walk through the process of setting up a new database, creating tables, and adding data. We'll also cover some basic SQL commands that you can use to interact with your database, including CREATE TABLE, INSERT, SELECT, UPDATE, and DELETE. By the end of this lesson, you'll have a good understanding of how to work with SQLite databases in Flask and be ready to start building your own <strong>__</strong>.</p>
-<h2 id="Setting-up-a-SQLite-database-in-Flask">Setting up a SQLite database in Flask<a class="anchor-link" href="#Setting-up-a-SQLite-database-in-Flask"> </a></h2><p>One of the key features of <strong>_</strong> is its ability to work seamlessly with <strong>_</strong>, including SQLite. A database is a collection of data stored in an organized manner that can be easily accessed, managed, and updated.</p>
+<h1 id="Databases-and-SQlite">Databases and SQlite<a class="anchor-link" href="#Databases-and-SQlite"> </a></h1><p>SQLite is a <em>software</em> library that provides a relational database management system. Unlike other databases, such as MySQL or PostgreSQL, SQLite is embedded within an application, which means it does not require a separate server process to operate. This makes SQLite a great choice for small-scale applications or for use in situations where you don't want to set up a full database server.</p>
+<p>In this lesson, we will be demonstrating how to set up a SQLite database in Flask, which provides an easy-to-use interface for interacting with SQLite databases, and we'll walk through the process of setting up a new database, creating tables, and adding data. We'll also cover some basic SQL commands that you can use to interact with your database, including CREATE TABLE, INSERT, SELECT, UPDATE, and DELETE. By the end of this lesson, you'll have a good understanding of how to work with SQLite databases in Flask and be ready to start building your own <em>applications</em>.</p>
+<h2 id="Setting-up-a-SQLite-database-in-Flask">Setting up a SQLite database in Flask<a class="anchor-link" href="#Setting-up-a-SQLite-database-in-Flask"> </a></h2><p>One of the key features of <em>Flask</em> is its ability to work seamlessly with <em>databases</em>, including SQLite. A database is a collection of data stored in an organized manner that can be easily accessed, managed, and updated.</p>
 <h3 id="SQlite-databse-in-Flask">SQlite databse in Flask<a class="anchor-link" href="#SQlite-databse-in-Flask"> </a></h3>
 </div>
 </div>
@@ -429,7 +429,7 @@ Working with multiple objects and class attributes
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Basic-SQL-commands-(create,-read,-update,-delete)">Basic SQL commands (create, read, update, delete)<a class="anchor-link" href="#Basic-SQL-commands-(create,-read,-update,-delete)"> </a></h2><p><strong>__</strong> is really useful because it helps people do a bunch of things with the data stored in databases. For example, they can use it to create new tables to organize data, add new data to a table, update data that's already there, or delete data that's no longer needed.</p>
+<h2 id="Basic-SQL-commands-(create,-read,-update,-delete)">Basic SQL commands (create, read, update, delete)<a class="anchor-link" href="#Basic-SQL-commands-(create,-read,-update,-delete)"> </a></h2><p><em>SQL</em> is really useful because it helps people do a bunch of things with the data stored in databases. For example, they can use it to create new tables to organize data, add new data to a table, update data that's already there, or delete data that's no longer needed.</p>
 <p>CRUD is an acronym that stands for the fundamental operations that can be performed on a database, which are Create, Read, Update, and Delete. A widely-used lightweight database management system is SQLite, which can be easily integrated with different programming languages.</p>
 <ul>
 <li><p>C: To create a new record in a database, you must first define the table structure that will store the data. This can be accomplished using SQL commands such as CREATE. Once the table is created, data can be added to it using the INSERT INTO command.</p>
@@ -492,7 +492,7 @@ Working with multiple objects and class attributes
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This block of code is a menu function that helps with <strong>_<em>, </em></strong>, <strong>_<em>, and </em></strong> (CRUD) tasks and displays the schema. The menu function acts as a control point that directs the program to call different functions based on what the user wants to do. When users enter their preferred action, the input is checked to see which function to use. The menu function is created with no arguments and is called repeatedly, displaying the menu options until the user decides to leave.</p>
+<p>This block of code is a menu function that helps with <em>create, read, update, and delete</em> (CRUD) tasks and displays the schema. The menu function acts as a control point that directs the program to call different functions based on what the user wants to do. When users enter their preferred action, the input is checked to see which function to use. The menu function is created with no arguments and is called repeatedly, displaying the menu options until the user decides to leave.</p>
 <h3 id="Creating-a-Database">Creating a Database<a class="anchor-link" href="#Creating-a-Database"> </a></h3>
 </div>
 </div>
@@ -603,7 +603,7 @@ Working with multiple objects and class attributes
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <strong>_</strong> function allows users to input information about a coding professor and store it in a SQLite database named 'professors.db'. This script prompts the user for the professor's name, field of expertise, rating out of 10, and any reviews or comments about the professor. It then establishes a connection to the SQLite database and creates a cursor object for executing SQL commands.</p>
+<p>The <em>create()</em> function allows users to input information about a coding professor and store it in a SQLite database named 'professors.db'. This script prompts the user for the professor's name, field of expertise, rating out of 10, and any reviews or comments about the professor. It then establishes a connection to the SQLite database and creates a cursor object for executing SQL commands.</p>
 
 </div>
 </div>
@@ -680,7 +680,7 @@ Reviews: One of the greatest professors
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This code demonstrates how to read data from a SQLite database using Python and the <strong>_</strong>. The first step is to establish a connection to the database and create a cursor object to execute SQL commands. Then, a SELECT query is executed to fetch all records from the "professors" table. If there are any records, the code iterates through each record and prints out the name, field of expertise, rating, and reviews for each coding professor. If there are no records in the table, a message indicating so is printed.</p>
+<p>This code demonstrates how to read data from a SQLite database using Python and the <em>SQLite3 library</em>. The first step is to establish a connection to the database and create a cursor object to execute SQL commands. Then, a SELECT query is executed to fetch all records from the "professors" table. If there are any records, the code iterates through each record and prints out the name, field of expertise, rating, and reviews for each coding professor. If there are no records in the table, a message indicating so is printed.</p>
 
 </div>
 </div>
@@ -763,7 +763,7 @@ Sean Yeung&#39;s record has been updated.
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This is an implementation of an update function for the professors database using the sqlite3 module in Python. The function first establishes a connection to the database file 'instance/professors.db' and creates a cursor object to execute <strong><strong> commands. It prompts the user to enter the name of the professor to update and retrieves the corresponding record from the database using a SELECT statement with a WHERE clause to match the professor's name. If the professor is found in the database, the user is prompted to enter new information for the professor's field of expertise, rating, and reviews. The function then executes an </strong></strong> statement with the new information to update the record in the database.</p>
+<p>This is an implementation of an update function for the professors database using the sqlite3 module in Python. The function first establishes a connection to the database file 'instance/professors.db' and creates a cursor object to execute <em>SQL</em> commands. It prompts the user to enter the name of the professor to update and retrieves the corresponding record from the database using a SELECT statement with a WHERE clause to match the professor's name. If the professor is found in the database, the user is prompted to enter new information for the professor's field of expertise, rating, and reviews. The function then executes an <em>UPDATE</em> statement with the new information to update the record in the database.</p>
 
 </div>
 </div>
@@ -836,7 +836,7 @@ Sean Yeung&#39;s record has been updated.
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This code is a Python function for <em>__</em> a record from a SQLite database. The function prompts the user to input the name of the professor they want to delete. It then uses a SQL query to search for the professor in the database. If the professor is found, the user is prompted to confirm the deletion. If the user confirms, the function executes a SQL command to delete the record from the database. The function also prints a message confirming that the professor has been deleted from the list of coding professors. If the professor is not found in the database, the function prints a message indicating that the professor is not in the list.</p>
+<p>This code is a Python function for <em>deleting</em> a record from a SQLite database. The function prompts the user to input the name of the professor they want to delete. It then uses a SQL query to search for the professor in the database. If the professor is found, the user is prompted to confirm the deletion. If the user confirms, the function executes a SQL command to delete the record from the database. The function also prints a message confirming that the professor has been deleted from the list of coding professors. If the professor is not found in the database, the function prints a message indicating that the professor is not in the list.</p>
 
 </div>
 </div>
