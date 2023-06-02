@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Using Keyframes &amp; Game Logic | Paaras Purohit - AP Computer Science Portfolio</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Using Keyframes &amp; Game Logic" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How you can use keyframes and game logic in your own project, by the Hectic Six" />
+<meta property="og:description" content="How you can use keyframes and game logic in your own project, by the Hectic Six" />
+<link rel="canonical" href="https://paaraspurohit.com/apcompsciportfolio/snake-ntbk" />
+<meta property="og:url" content="https://paaraspurohit.com/apcompsciportfolio/snake-ntbk" />
+<meta property="og:site_name" content="Paaras Purohit - AP Computer Science Portfolio" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-01T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Using Keyframes &amp; Game Logic" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-06-01T00:00:00-05:00","datePublished":"2023-06-01T00:00:00-05:00","description":"How you can use keyframes and game logic in your own project, by the Hectic Six","headline":"Using Keyframes &amp; Game Logic","mainEntityOfPage":{"@type":"WebPage","@id":"https://paaraspurohit.com/apcompsciportfolio/snake-ntbk"},"url":"https://paaraspurohit.com/apcompsciportfolio/snake-ntbk"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/apcompsciportfolio/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://paaraspurohit.com/apcompsciportfolio/feed.xml" title="Paaras Purohit - AP Computer Science Portfolio" /><link rel="shortcut icon" type="image/x-icon" href="/apcompsciportfolio/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/apcompsciportfolio/">Paaras Purohit - AP Computer Science Portfolio</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/apcompsciportfolio/about/">About Me</a><a class="page-link" href="/apcompsciportfolio/javascript/">JavaScript</a><a class="page-link" href="/apcompsciportfolio/notes-and-vocab/">Notes &amp; Vocab</a><a class="page-link" href="/apcompsciportfolio/search/">Search</a><a class="page-link" href="/apcompsciportfolio/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Using Keyframes &amp; Game Logic</h1><p class="page-description">How you can use keyframes and game logic in your own project, by the Hectic Six</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-06-01T00:00:00-05:00" itemprop="datePublished">
+        Jun 1, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/apcompsciportfolio/categories/#units">units</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/PaarasPurohit/apcompsciportfolio/tree/master/_notebooks/2023-06-01-snakeusecases.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/apcompsciportfolio/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/PaarasPurohit/apcompsciportfolio/master?filepath=_notebooks%2F2023-06-01-snakeusecases.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/apcompsciportfolio/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/PaarasPurohit/apcompsciportfolio/blob/master/_notebooks/2023-06-01-snakeusecases.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/apcompsciportfolio/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FPaarasPurohit%2Fapcompsciportfolio%2Fblob%2Fmaster%2F_notebooks%2F2023-06-01-snakeusecases.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/apcompsciportfolio/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Hacks">Hacks </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-06-01-snakeusecases.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-javascript"><pre><span></span><span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'game'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'2d'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">':root'</span><span class="p">);</span>
+<span class="c1">// the canvas width &amp; height, snake x &amp; y, and the apple x &amp; y, all need to be a multiples of the grid size in order for collision detection to work</span>
+<span class="c1">// (e.g. 16 * 25 = 400)</span>
+<span class="kd">var</span> <span class="nx">grid</span> <span class="o">=</span> <span class="mf">16</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="c1">// reading last score value</span>
+<span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">snake</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">x</span><span class="o">:</span> <span class="mf">160</span><span class="p">,</span>
+  <span class="nx">y</span><span class="o">:</span> <span class="mf">160</span><span class="p">,</span>
+  <span class="c1">// snake velocity. moves one grid length every frame in either the x or y direction</span>
+  <span class="nx">dx</span><span class="o">:</span> <span class="nx">grid</span><span class="p">,</span>
+  <span class="nx">dy</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+  <span class="c1">// keep track of all grids the snake body occupies</span>
+  <span class="nx">cells</span><span class="o">:</span> <span class="p">[],</span>
+  <span class="c1">// length of the snake. grows when eating an apple</span>
+  <span class="nx">maxCells</span><span class="o">:</span> <span class="mf">4</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">apple</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">x</span><span class="o">:</span> <span class="mf">320</span><span class="p">,</span>
+  <span class="nx">y</span><span class="o">:</span> <span class="mf">320</span>
+<span class="p">};</span>
+<span class="c1">// get random whole numbers in a specific range</span>
+<span class="c1">// @see https://stackoverflow.com/a/1527820/2124254</span>
+<span class="kd">function</span> <span class="nx">getRandomInt</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">min</span><span class="p">))</span> <span class="o">+</span> <span class="nx">min</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// game loop</span>
+<span class="kd">function</span> <span class="nx">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">loop</span><span class="p">);</span>
+  <span class="c1">// slow game loop to 15 fps instead of 60 (60/15 = 4)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">++</span><span class="nx">count</span> <span class="o">&lt;</span> <span class="mf">6</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">count</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+  <span class="c1">// move snake by its velocity</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">dy</span><span class="p">;</span>
+  <span class="c1">// check if the snake hits the borders</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">snake</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mf">0</span> <span class="o">||</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">||</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="mf">0</span> <span class="o">||</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">endGame</span><span class="p">();</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// keep track of where snake has been. front of the array is always the head</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">cells</span><span class="p">.</span><span class="nx">unshift</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">y</span><span class="p">});</span>
+  <span class="c1">// remove cells as we move away from them</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">snake</span><span class="p">.</span><span class="nx">cells</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">maxCells</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">snake</span><span class="p">.</span><span class="nx">cells</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="c1">// draw apple</span>
+  <span class="nx">apple_color</span> <span class="o">=</span> <span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">root</span><span class="p">).</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">'--apple'</span><span class="p">);</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">apple_color</span><span class="p">;</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">apple</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">apple</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">grid</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span> <span class="nx">grid</span><span class="o">-</span><span class="mf">1</span><span class="p">);</span>
+  <span class="c1">// draw snake one cell at a time</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">root</span><span class="p">).</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">'--snake'</span><span class="p">);</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">cells</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">cell</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">cell</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">cell</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">grid</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span> <span class="nx">grid</span><span class="o">-</span><span class="mf">1</span><span class="p">);</span>
+    <span class="c1">// snake ate apple</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cell</span><span class="p">.</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">apple</span><span class="p">.</span><span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">cell</span><span class="p">.</span><span class="nx">y</span> <span class="o">===</span> <span class="nx">apple</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">snake</span><span class="p">.</span><span class="nx">maxCells</span><span class="o">++</span><span class="p">;</span>
+      <span class="nx">score</span><span class="o">+=</span><span class="mf">1</span><span class="p">;</span>
+      <span class="c1">// saving score for next playing.</span>
+      <span class="c1">// localStorage.setItem('score',score);</span>
+      <span class="c1">// max=score;</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'score'</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">score</span><span class="p">;</span>
+      <span class="c1">// canvas is 400x400 which is 25x25 grids</span>
+      <span class="nx">apple</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">getRandomInt</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">25</span><span class="p">)</span> <span class="o">*</span> <span class="nx">grid</span><span class="p">;</span>
+      <span class="nx">apple</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">getRandomInt</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">25</span><span class="p">)</span> <span class="o">*</span> <span class="nx">grid</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// check collision with all cells after this one (modified bubble sort)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">index</span> <span class="o">+</span> <span class="mf">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">cells</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// snake occupies the same space as a body part. reset game</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">cell</span><span class="p">.</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">cells</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">cell</span><span class="p">.</span><span class="nx">y</span> <span class="o">===</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">cells</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">endGame</span><span class="p">();</span>
+        <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// Function to end the game</span>
+<span class="kd">function</span> <span class="nx">endGame</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">&gt;</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">max</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mf">160</span><span class="p">;</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mf">160</span><span class="p">;</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">cells</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">maxCells</span> <span class="o">=</span> <span class="mf">4</span><span class="p">;</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="nx">grid</span><span class="p">;</span>
+  <span class="nx">snake</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+  <span class="nx">score</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'score'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
+  <span class="nx">apple</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">getRandomInt</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">25</span><span class="p">)</span> <span class="o">*</span> <span class="nx">grid</span><span class="p">;</span>
+  <span class="nx">apple</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">getRandomInt</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">25</span><span class="p">)</span> <span class="o">*</span> <span class="nx">grid</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'high'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">max</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'end_msg'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"Game Over"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// listen to keyboard events to move the snake</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'keydown'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// prevent snake from backtracking on itself by checking that it's</span>
+  <span class="c1">// not already moving on the same axis (pressing left while moving</span>
+  <span class="c1">// left won't do anything, and pressing right while moving left</span>
+  <span class="c1">// shouldn't let you collide with your own body)</span>
+  <span class="c1">// left arrow key</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">which</span> <span class="o">===</span> <span class="mf">37</span> <span class="o">&amp;&amp;</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">dx</span> <span class="o">===</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">snake</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="o">-</span><span class="nx">grid</span><span class="p">;</span>
+    <span class="nx">snake</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// up arrow key</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">which</span> <span class="o">===</span> <span class="mf">38</span> <span class="o">&amp;&amp;</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">dy</span> <span class="o">===</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">snake</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="o">-</span><span class="nx">grid</span><span class="p">;</span>
+    <span class="nx">snake</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// right arrow key</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">which</span> <span class="o">===</span> <span class="mf">39</span> <span class="o">&amp;&amp;</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">dx</span> <span class="o">===</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">snake</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="nx">grid</span><span class="p">;</span>
+    <span class="nx">snake</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// down arrow key</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">which</span> <span class="o">===</span> <span class="mf">40</span> <span class="o">&amp;&amp;</span> <span class="nx">snake</span><span class="p">.</span><span class="nx">dy</span> <span class="o">===</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">snake</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="nx">grid</span><span class="p">;</span>
+    <span class="nx">snake</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// start the game</span>
+<span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">loop</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'end_msg'</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">""</span><span class="p">;</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="s1">'Press confirm to continue'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// stop playing</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#btn_stop'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'end_msg'</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">"Game stopped"</span><span class="p">;</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">myFunction</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The code you provided demonstrates a basic implementation of the classic game Snake using the HTML5 canvas element. Let's break down its functionality and discuss how a web developer could use the concepts in their own projects:</p>
+<ol>
+<li>
+<p>Initializing and Configuring the Game:</p>
+<ul>
+<li>The code initializes the canvas and its context, sets up variables for grid size, score tracking, and game elements such as the snake and the apple.</li>
+<li>Web developers can adapt this initialization phase to suit their own game requirements. They can modify variables, add additional game elements, or customize the appearance of the game interface.</li>
+</ul>
+</li>
+<li>
+<p>Game Loop:</p>
+<ul>
+<li>The code implements a game loop using the <code>requestAnimationFrame()</code> function to repeatedly update and render the game elements.</li>
+<li>Developers can learn from this game loop structure to create their own game loops for real-time rendering and interaction in their projects.</li>
+</ul>
+</li>
+<li>
+<p>Snake Movement and Collision Detection:</p>
+<ul>
+<li>The code allows the player to control the snake's movement using keyboard events. It prevents the snake from moving in the opposite direction and checks for collision with the game boundaries and the snake's own body.</li>
+<li>Developers can use this logic as a starting point to implement player controls and collision detection in their own games or interactive applications.</li>
+</ul>
+</li>
+<li>
+<p>Apple Generation and Scoring:</p>
+<ul>
+<li>The code generates an apple at random positions on the canvas and updates the score when the snake eats the apple.</li>
+<li>Developers can adapt this concept to create collectibles or power-ups in their own games. They can define their own rules for generating and scoring based on their game mechanics.</li>
+</ul>
+</li>
+<li>
+<p>Game Over and Restart:</p>
+<ul>
+<li>The code provides a function called <code>endGame()</code> that resets the game state and displays a "Game Over" message when the snake collides with a boundary or its own body.</li>
+<li>Developers can study this function to understand how to handle game over scenarios and implement their own game over logic in their projects.</li>
+</ul>
+</li>
+<li>
+<p>Additional Features:</p>
+<ul>
+<li>The code includes additional features like stopping the game on button click and displaying the maximum score achieved.</li>
+<li>Developers can incorporate similar features into their projects to enhance the user experience and provide additional functionality.</li>
+</ul>
+</li>
+</ol>
+<p>By understanding and adapting the concepts from this code, web developers can create their own variations of the Snake game or incorporate similar mechanics and features into their own games or interactive projects. They can customize the visuals, add more complex gameplay elements, implement different control schemes, or even combine these concepts with other game mechanics to create unique experiences.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Hacks">
+<a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
+</h1>
+<ol>
+<li>
+<p>Implement a Two-Player Snake Game:</p>
+<ul>
+<li>Challenge: Modify the code to allow for two players to control separate snakes on the same canvas. Implement multiplayer functionality and handle collision detection between the snakes.</li>
+<li>This challenge can be challenging because it requires managing the state and movement of two separate snakes simultaneously. It involves handling input from multiple players and ensuring fair gameplay mechanics.</li>
+</ul>
+</li>
+<li>
+<p>Add Obstacles and Power-Ups:</p>
+<ul>
+<li>Challenge: Extend the game by introducing obstacles (e.g., walls, barriers) and power-ups that affect the snake's behavior or score. Implement collision detection with obstacles and define unique effects for power-ups.</li>
+<li>This challenge requires adding more complexity to the collision detection logic and introducing new game elements with distinct behaviors. It involves managing the placement and interaction of obstacles and power-ups.</li>
+</ul>
+</li>
+<li>
+<p>Implement Levels with Increasing Difficulty:</p>
+<ul>
+<li>Challenge: Design multiple levels with increasing difficulty in terms of snake speed, obstacle density, or other factors. Allow the player to progress through levels and track their progress.</li>
+<li>This challenge involves designing a level system and managing the progression of difficulty. It requires adjusting the game mechanics dynamically based on the level and providing a satisfying and challenging gameplay experience.</li>
+</ul>
+</li>
+<li>
+<p>Extra Credit Challenge: Create a Snake AI Opponent:</p>
+<ul>
+<li>Challenge: Develop an AI-controlled snake opponent that competes against the player. Implement AI algorithms (e.g., pathfinding, decision-making) to control the opponent's movement and behavior.</li>
+<li>This challenge can be the hardest of the four as it requires understanding and implementing AI algorithms specific to the Snake game. It involves designing the opponent's decision-making process, optimizing the AI's behavior, and providing a challenging opponent for the player.</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/apcompsciportfolio/snake-ntbk" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/apcompsciportfolio/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://paaraspurohit.com/apcompsciportfolio/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/apcompsciportfolio/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>The portfolio for Paaras Purohit in AP Computer Science</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="” https://github.com/nighthawkcoders “" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/apcompsciportfolio/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="” https://twitter.com/NighthawkCoding “" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/apcompsciportfolio/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="” https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q “" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/apcompsciportfolio/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
